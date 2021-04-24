@@ -29,6 +29,11 @@
           <el-button type="info"
                      @click="resetForm('loginFormRef')">重置</el-button>
         </el-form-item>
+        <!-- mock 测试按钮 -->
+        <el-form-item class="btns">
+          <el-button type="primary"
+                     @click="mock">mock测试</el-button>
+        </el-form-item>
       </el-form>
     </div>
   </div>
@@ -40,7 +45,7 @@ export default {
     return {
       // 数据绑定对象
       loginForm: {
-        username: '2@qq.com',
+        username: '1@qq.com',
         password: '123456'
       },
       loginFormRules: {
@@ -63,14 +68,15 @@ export default {
           // 未校验通过
           return
         }
-        var { data: response } = await this.$http.post('/v1/login', this.loginForm)
+        var { data: response } = await this.$http.post('/v1/user/login', this.loginForm)
+        console.log(response)
         if (response.code !== 200) {
           // 登录失败
           return this.open(response.message)
         }
         // 登录成功
         this.$message.success('登录成功')
-        window.sessionStorage.setItem('token', response.token)
+        window.sessionStorage.setItem('token', response.data.token)
         this.$router.push('/home')
       })
     },
@@ -87,6 +93,10 @@ export default {
           })
         }
       })
+    },
+    async mock () {
+      const response = await this.$http.get('/v1/health')
+      console.log(response)
     }
   }
 }
