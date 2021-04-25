@@ -1,12 +1,14 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from './router'
 import './assets/css/global.css'
-import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog } from 'element-ui'
+import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
 import axios from 'axios'
+
 // 配置请求的根路径
 axios.defaults.baseURL = 'http://localhost:10006/'
 
@@ -17,6 +19,7 @@ axios.interceptors.request.use(config => {
 
 Vue.prototype.$http = axios
 Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm
 
 Vue.use(Form)
 Vue.use(FormItem)
@@ -44,6 +47,11 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 
 Vue.config.productionTip = false
+
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 new Vue({
   router,
