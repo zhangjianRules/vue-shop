@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from './router'
 import './assets/css/global.css'
-import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } from 'element-ui'
+import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox, Tag } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
@@ -45,6 +45,7 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
 
 Vue.config.productionTip = false
 
