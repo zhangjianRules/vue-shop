@@ -45,7 +45,7 @@ export default {
     return {
       // 数据绑定对象
       loginForm: {
-        username: '1@qq.com',
+        username: 'admin',
         password: '123456'
       },
       loginFormRules: {
@@ -68,9 +68,8 @@ export default {
           // 未校验通过
           return
         }
-        var { data: response } = await this.$http.post('/v1/user/login', this.loginForm)
-        console.log(response)
-        if (response.code !== 200) {
+        var { data: response } = await this.$http.post('/v1/login', this.loginForm)
+        if (response.meta.status !== 200) {
           // 登录失败
           return this.open(response.message)
         }

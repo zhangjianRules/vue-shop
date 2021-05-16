@@ -14,7 +14,7 @@
                   stripe>
           <el-table-column type="index"></el-table-column>
           <el-table-column label="权限名称"
-                           prop="name"></el-table-column>
+                           prop="authName"></el-table-column>
           <el-table-column label="路径"
                            prop="path"></el-table-column>
           <el-table-column label="等级"
@@ -47,11 +47,10 @@ export default {
   methods: {
     // 获取权限列表
     async getPermission () {
-      const response = await this.$http.get('/v1/mock/permission')
-      if (response.data.code !== 200) {
+      const response = await this.$http.get('/v1/rights/list')
+      if (response.data.meta.status !== 200) {
         return this.$message.error('获取权限列表失败')
       }
-      console.log(response.data.data)
       this.permissionList = response.data.data
     }
   }

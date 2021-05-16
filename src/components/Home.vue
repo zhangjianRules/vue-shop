@@ -64,11 +64,11 @@ export default {
     return {
       menuList: [],
       iconsObj: {
-        101: 'iconfont icon-users',
-        201: 'iconfont icon-tijikongjian',
-        301: 'iconfont icon-shangpin',
-        401: 'iconfont icon-danju',
-        501: 'iconfont icon-baobiao'
+        125: 'iconfont icon-users',
+        103: 'iconfont icon-tijikongjian',
+        101: 'iconfont icon-shangpin',
+        102: 'iconfont icon-danju',
+        145: 'iconfont icon-baobiao'
       },
       // 是否折叠
       isCollapse: false,
@@ -86,8 +86,8 @@ export default {
       this.$router.push('/login')
     },
     async getMenuList () {
-      const response = await this.$http.get('/v1/mock/menu')
-      if (response.data.code !== 200) {
+      const response = await this.$http.get('/v1/menus')
+      if (response.data.meta.status !== 200) {
         return this.$message.error(response.data.message)
       }
       this.menuList = response.data.data
