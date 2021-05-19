@@ -3,14 +3,16 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import router from './router'
 import './assets/css/global.css'
-import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox, Tag, Tree, Select, Option } from 'element-ui'
+import { Form, FormItem, Input, Button, Alert, Message, Container, Header, Main, Aside, Submenu, Menu, MenuItem, MenuItemGroup, Col, Breadcrumb, BreadcrumbItem, Card, Row, Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox, Tag, Tree, Select, Option, Cascader, Tabs, TabPane } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
 import axios from 'axios'
+import TreeTable from 'vue-table-with-tree-grid'
 
 // 配置请求的根路径
 // axios.defaults.baseURL = 'http://localhost:10006/'
+// 前端地址 http://gl.timemeetyou.com/
 axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private'
 
 axios.interceptors.request.use(config => {
@@ -50,6 +52,9 @@ Vue.use(Tag)
 Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Cascader)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 Vue.config.productionTip = false
 
@@ -58,6 +63,7 @@ VueRouter.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
+Vue.component('tree-table', TreeTable)
 new Vue({
   router,
   render: h => h(App)
