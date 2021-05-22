@@ -220,7 +220,6 @@ export default {
     },
     // 级联选择项发生变化触发这个函数
     parentCateChanged () {
-      console.log(this.selectedKeys)
       if (this.selectedKeys.length > 0) {
         // 父级分类的id
         this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
@@ -238,7 +237,6 @@ export default {
           return
         }
         const response = await this.$http.post('/v1/categories', this.addCateForm)
-        console.log(response.data)
         if (response.data.meta.status !== 201) {
           return this.$message.error('新增分类失败')
         }

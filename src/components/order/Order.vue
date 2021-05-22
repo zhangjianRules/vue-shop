@@ -110,7 +110,7 @@
                :visible.sync="progressVisible"
                width="50%">
       <!-- 时间线 -->
-      <el-timeline :reverse="reverse">
+      <el-timeline>
         <el-timeline-item v-for="(activity, index) in progressInfo"
                           :key="index"
                           :timestamp="activity.time">

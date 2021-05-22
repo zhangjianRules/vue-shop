@@ -13,17 +13,33 @@ import TreeTable from 'vue-table-with-tree-grid'
 // 导入富文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
 // 导入富文本编辑器对应样式
-import 'quill/dist/quill.core.css' // import styles
-import 'quill/dist/quill.snow.css' // for snow theme
-import 'quill/dist/quill.bubble.css' // for bubble theme
+// import 'quill/dist/quill.core.css' // import styles
+// import 'quill/dist/quill.snow.css' // for snow theme
+// import 'quill/dist/quill.bubble.css' // for bubble theme
+
+// 导入进度条NProgress包对应的js和css
+import NProgress from 'nprogress'
+// import 'nprogress/nprogress.css'
 
 // 配置请求的根路径
 // axios.defaults.baseURL = 'http://localhost:10006/'
 // 前端地址 http://gl.timemeetyou.com/
-axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private'
+// 可参考以下代码
+// 该项目实例: http://shop.liulongbin.top/
+// 前端代码:https://gitee.com/wBekvam/vue-shop-admin.git
+// 后端代码:https://gitee.com/wBekvam/vueShop-api-server.git
+// 页面预览:http://shop.liulongbin.top/
 
+axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private'
+// 在request 拦截器中，展示进度条 NProgress.start()
 axios.interceptors.request.use(config => {
+  NProgress.start()
   config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+// 在response拦截器中，隐藏进度条 NProgress.done()
+axios.interceptors.response.use(config => {
+  NProgress.done()
   return config
 })
 

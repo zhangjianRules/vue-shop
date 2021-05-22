@@ -152,12 +152,10 @@ export default {
       this.rolesList = response.data.data
     },
     async showEditRole (id) {
-      const response = await this.$http.get('/v1/roles/' + id)
-      console.log(response)
+      // const response = await this.$http.get('/v1/roles/' + id)
     },
     async removeRoleById (id) {
-      const response = await this.$http.get('/v1/roles/' + id)
-      console.log(response)
+      // const response = await this.$http.get('/v1/roles/' + id)
     },
     // 根据id删除对应的权限
     async removeRightById (role, rightId) {
@@ -190,7 +188,6 @@ export default {
       }
       // 把获取到的权限数据保存到data中
       this.rightsList = response.data.data
-      console.log(this.rightsList)
       // 递归获取三级节点的id
       this.getLeafKeys(role, this.defKeys)
       this.setRightDialogVisible = true

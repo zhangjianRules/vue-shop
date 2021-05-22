@@ -101,7 +101,6 @@ export default {
       }
       this.goodsList = response.data.data.goods
       this.total = response.data.data.total
-      console.log(this.goodsList)
     },
     handleSizeChange (newSize) {
       this.queryInfo.pagesize = newSize

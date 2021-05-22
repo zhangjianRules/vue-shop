@@ -266,7 +266,6 @@ export default {
     handleSuccess (response) {
       const picInfo = { pic: response.data.tmp_path }
       this.addForm.pics.push(picInfo)
-      console.log(this.addForm)
     },
     // 添加商品
     add () {
@@ -297,7 +296,7 @@ export default {
         form.attrs = this.addForm.attrs
         // 商品名称，必须是唯一的
         const response = await this.$http.post('/v1/goods', form)
-        console.log(response.data)
+
         if (response.data.meta.status !== 201) {
           return this.$message.error('添加商品失败')
         }

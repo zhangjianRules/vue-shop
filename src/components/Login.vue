@@ -94,8 +94,7 @@ export default {
       })
     },
     async mock () {
-      const response = await this.$http.get('/v1/health')
-      console.log(response)
+
     }
   }
 }
