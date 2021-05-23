@@ -62,10 +62,10 @@ app.listen(80, () => {
 在服务器端使用express做gzip压缩,配置如下
 ```
 // 1. cd vue_shop_server根目录
-// 2.npm install compression -S
-// 3.导入包
+// 2. npm install compression -S
+// 3. 导入包
 const compression = require('compression')
-// 4.启用中间件
+// 4. 启用中间件
 app.use(compression())
 ```
 
@@ -90,10 +90,10 @@ app.use(compression())
 使用pm2管理应用
 1. npm i pm2 -g //全局安装
 2. 进入vue_shop_server
-  cd /Users/xxx/Documents/git.xxx.com/vue_shop_server
+- cd /Users/xxx/Documents/git.xxx.com/vue_shop_server
 3. pm2 start 脚本(如./app.js) --name 自定义名称 // 启动项目
-  pm2 start ./app.js --name web_vueshop
-  可以通过 http://127.0.0.1/ 进行访问
+- pm2 start ./app.js --name web_vueshop
+- 可以通过 http://127.0.0.1/ 进行访问
 4. pm2 ls //查看服务器运行的项目
 5. pm2 restart 自定义名称 //重启项目
 6. pm2 stop 自定义名称 //停止项目
