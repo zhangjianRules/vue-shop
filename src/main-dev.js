@@ -29,6 +29,7 @@ import 'nprogress/nprogress.css'
 // 前端代码:https://gitee.com/wBekvam/vue-shop-admin.git
 // 后端代码:https://gitee.com/wBekvam/vueShop-api-server.git
 // 页面预览:http://shop.liulongbin.top/
+// 前端项目fork: https://gitee.com/zhangjiansdzz/vue-shop-admin
 axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private'
 // 在request 拦截器中，展示进度条 NProgress.start()
 axios.interceptors.request.use(config => {
